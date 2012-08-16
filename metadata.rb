@@ -9,3 +9,30 @@ version          "0.0.1"
   supports os
 end
 
+attribute "authorization",
+  :display_name => "Authorization",
+  :description => "Hash of Authorization attributes",
+  :type => "hash"
+
+attribute "authorization/sudo",
+  :display_name => "Authorization Sudoers",
+  :description => "Hash of Authorization/Sudo attributes",
+  :type => "hash"
+
+attribute "authorization/sudo/users",
+  :display_name => "Sudo Users",
+  :description => "Users who are allowed sudo ALL",
+  :type => "array",
+  :default => ""
+
+attribute "authorization/sudo/groups",
+  :display_name => "Sudo Groups",
+  :description => "Groups who are allowed sudo ALL",
+  :type => "array",
+  :default => ""
+
+attribute "authorization/sudo/passwordless",
+  :display_name => "Passwordless Sudo",
+  :description => "",
+  :type => "string",
+  :default => "false"

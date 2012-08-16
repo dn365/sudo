@@ -45,4 +45,18 @@ when "hpux"
     end
   end
 end
-  
+
+if platform?("hpux") || platform?("aix")  
+  template "/etc/sudoers" do
+    path "/usr/local/etc/sudoers" if platform?("hpux")
+    source "sudoers.erb"
+    mode 0440
+    owner "root"
+    group platform?("hpux") ? "sys" : "system"
+    variables(
+      :sudoers_groups => node['authorization']['sudo']['groups'],
+      :sudoers_users => node['authorization']['sudo']['users'],
+      :passwordless => node['authorization']['sudo']['passwordless']
+      )
+  end
+end
