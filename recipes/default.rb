@@ -18,7 +18,7 @@ when "aix"
   package "sudo" do
     action :install
     options "-vh"
-    source "/var/chef/pkg/sudo-1.8.5p2-1.aix5.1.ppc.rpm"
+    source "/var/chef/pkg/sudo-1.6.9p23-2noldap.aix5.3.ppc.rpm"
     provider Chef::Provider::Package::Rpm
   end
 when "hpux"
