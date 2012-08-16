@@ -54,9 +54,9 @@ if platform?("hpux") || platform?("aix")
     owner "root"
     group platform?("hpux") ? "sys" : "system"
     variables(
-      :sudoers_groups => node['authorization']['sudo']['groups'],
-      :sudoers_users => node['authorization']['sudo']['users'],
-      :passwordless => node['authorization']['sudo']['passwordless']
+      :sudoers_groups => node["sudo"]["groups"],
+      :sudoers_users => node["sudo"]["users"],
+      :passwordless => node["sudo"]["passwordless"]
       )
   end
 end
