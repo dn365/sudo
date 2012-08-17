@@ -29,18 +29,18 @@ when "hpux"
   if node.os_version.include?("11.31")
     if node["cpu"]["0"]["model"] == "Itanium"
       execute "sudo" do
-        command "/usr/sbin/swinstall -s /var/chef/pkg/sudo-1.8.5p2-ia64-11.31.depot sudo"
+        command "/usr/sbin/swinstall -x mount_all_filesystems=false -s /var/chef/pkg/sudo-1.8.5p2-ia64-11.31.depot sudo"
         not_if { ::File.exist?("/usr/local/bin/sudo")}
       end
     elsif node["cpu"]["0"]["model"].include?("PA RISC")
       execute "sudo" do
-        command "/usr/sbin/swinstall -s /var/chef/pkg/sudo-1.8.5p2-hppa-11.31.depot sudo"
+        command "/usr/sbin/swinstall -x mount_all_filesystems=false -s /var/chef/pkg/sudo-1.8.5p2-hppa-11.31.depot sudo"
         not_if { ::File.exist?("/usr/local/bin/sudo")}
       end
     end
   elsif node.os_version.include?("11.11")
     execute "sudo" do
-      command "/usr/sbin/swinstall -s /var/chef/pkg/sudo-1.8.5p2-hppa-11.11.depot sudo"
+      command "/usr/sbin/swinstall -x mount_all_filesystems=false -s /var/chef/pkg/sudo-1.8.5p2-hppa-11.11.depot sudo"
       not_if { ::File.exist?("/usr/local/bin/sudo")}
     end
   end
